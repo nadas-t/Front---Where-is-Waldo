@@ -100,7 +100,9 @@ function LeaderBoard({ mapId, refreshKey = 0 }: LeaderBoardProps) {
 
       {errorMessage && (
         <div className="m-5 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-800 sm:m-6">
-          <span className="font-black">Não foi possível carregar o placar.</span>
+          <span className="font-black">
+            Não foi possível carregar o placar.
+          </span>
           <span className="mt-1 block text-red-700/80">{errorMessage}</span>
         </div>
       )}
@@ -110,7 +112,9 @@ function LeaderBoard({ mapId, refreshKey = 0 }: LeaderBoardProps) {
           <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-waldo-50 text-2xl">
             🏁
           </span>
-          <p className="mt-3 font-bold text-navy-900">O placar está esperando.</p>
+          <p className="mt-3 font-bold text-navy-900">
+            O placar está esperando.
+          </p>
           <p className="mt-1 text-sm text-navy-700/70">
             Complete este nível e inaugure o ranking.
           </p>

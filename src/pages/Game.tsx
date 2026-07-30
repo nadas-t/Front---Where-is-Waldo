@@ -22,10 +22,7 @@ type ClickPosition = {
   y: number;
 };
 
-const difficultyTags: Record<
-  string,
-  { label: string; className: string }
-> = {
+const difficultyTags: Record<string, { label: string; className: string }> = {
   easy: {
     label: "Fácil",
     className: "border-blue-200 bg-blue-100 text-blue-800",
@@ -124,10 +121,10 @@ function Game() {
   const showScoreDialog = isComplete && !scoreSubmitted && !scoreDismissed;
   const showStartCover = Boolean(selectedMap && !isGameStarted);
   const difficulty = selectedMap
-    ? difficultyTags[selectedMap.difficulty] ?? {
+    ? (difficultyTags[selectedMap.difficulty] ?? {
         label: selectedMap.difficulty,
         className: "border-gray-200 bg-gray-100 text-gray-800",
-      }
+      })
     : null;
 
   async function startGame() {
@@ -195,7 +192,6 @@ function Game() {
       y: e.clientY - rect.top,
     });
     setErrorMessage("");
-
   }
 
   function closeCharacterMenu() {
@@ -375,8 +371,8 @@ function Game() {
                             Olhos atentos?
                           </h2>
                           <p className="mt-2 text-sm leading-6 text-navy-700/70">
-                            Encontre {selectedMap.characters.length} personagens.
-                            O cronômetro começa ao iniciar.
+                            Encontre {selectedMap.characters.length}{" "}
+                            personagens. O cronômetro começa ao iniciar.
                           </p>
                           <button
                             className="mt-5 w-full rounded-xl bg-waldo-600 px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-red-900/20 transition hover:bg-waldo-700 disabled:cursor-not-allowed disabled:opacity-70"
@@ -416,7 +412,9 @@ function Game() {
                             : "border-red-200 bg-red-50 text-red-800"
                         }`}
                       >
-                        {isGuessing ? "Conferindo sua escolha..." : errorMessage}
+                        {isGuessing
+                          ? "Conferindo sua escolha..."
+                          : errorMessage}
                       </div>
                     )}
                   </div>
@@ -485,10 +483,7 @@ function Game() {
               </div>
             </section>
 
-            <LeaderBoard
-              mapId={selectedMap.id}
-              refreshKey={scoreRefreshKey}
-            />
+            <LeaderBoard mapId={selectedMap.id} refreshKey={scoreRefreshKey} />
           </>
         )}
 
